@@ -1,95 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niral24</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./cursor_tail_trial/style.css">
-    <link rel="stylesheet" href="./glowing_corners/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poetsen+One&family=Poppins&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="text"></div>
-<div class="container">
-    <div class="next">Niral'24</div>
-<div class="soon">Coming Soon..  Stay Tuned...</div>
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACA - Niral 2024</title>
+    <link rel="shortcut icon" href="./aca_logo.png" type="image/x-icon" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./default.css" />
+    <link rel="stylesheet" href="./cursor_tail_trial/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poetsen+One&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        color: aliceblue;
+        background-color: #000000;
+        /* background: black; */
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: cover;
+      }
+      .page-root {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: auto;
+        position: relative; /* To ensure the particle effect is properly layered */
+      }
+      .bgParticles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10; /* Place behind content */
+      }
+      .bgAnim {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        height: 100dvh;
+        width: 100%;
+        z-index: -9;
+      }
+      .bgAnim img {
+        width: 100%;
+        height: 100vh;
+      }
+      .bgBlur {
+        position: fixed;
+        overflow-x: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        z-index: -8;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(100px);
+        -webkit-backdrop-filter: blur(100px);
+      }
 
-<script>
-const div = document.querySelector(".text");
-const nextDiv = document.querySelector(".next");
-const soonDiv = document.querySelector(".soon");
+      .page-container {
+        width: 100%;
+        padding: 0 10%;
+        margin: 10vh auto 0;
+        position: relative; /* Ensure the content is above the particles */
+        z-index: 10;
+        background: linear-gradient(180deg, #00000010 10%,#00000050 80%, #00000090 90%, #000000 100%);
+      }
 
-const text1 = "One of a kind";
-const text1b = " after a long time..";
-const text2 = "A tide of challenges to tease your curious minds!";
-const text4 = "Technical & non-technical events,";
-const text4b = " workshops and more..";
-const texts = [text1, text1b, text2, text4, text4b];
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-align: center;
+        font-weight: 300;
+        background-image: linear-gradient(180deg, #ffffff 40%, #ffffff38 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-family: 'peter quency';
+      }
 
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      nav {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10vh;
+        background: rgba(0, 0, 0, 0.412);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 11;
+        padding: 0 5vw;
+      }
+      .hero-wrapper {
+        height: 90;
+        height: 90dvh;
+      }
+      .hero {
+        width: 100%;
+        height: 80vh;
+        height: 80dvh;
+        align-items: center;
+        justify-content: center;
+      }
+      .who-we-are {
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 10px;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+      }
+      h3 {
+        text-align: center;
+        font-weight: 400;
+        margin-bottom: 1rem;
+      }
+      .the-team .container {
+        flex-wrap: wrap;
+      }
+      .card {
+        width: 208px;
+        height: 280px;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem 0.3rem;
+      }
 
-function textTypingEffect(element, textArray, index = 0) {
-    const currentText = textArray[index];
-    let i = 0;
-    let interval;
+      /* .card:hover { */
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .card h5 {
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .card h6 {
+        text-align: center;
+        margin-top: 0.3rem;
+      }
+      .card img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
 
-    function appendNextCharacter() {
-        if (i === currentText.length ) {
-            clearInterval(interval); 
-            if (index < textArray.length - 1) {
-                setTimeout(() => {
-                    if (index === 0) {
-                        element.innerHTML += "<span class='comma'>,</span>";
-                        setTimeout(() => {
-                            textTypingEffect(element, textArray, index + 1);
-                        }, 1); // Time gap after the comma
-                        
-                    } else if (index === 3 || index === 4) { // This is the index of text4 and text4b
-                        element.innerHTML += "&nbsp;"; // Adding a non-breaking space for gap
-                        setTimeout(() => {
-                            textTypingEffect(element, textArray, index + 1);
-                        }, 1); // Time gap between text4 and text5
-                    } else {
-                        element.innerHTML += "<br>"; // Add line break between lines
-                        setTimeout(() => {
-                            textTypingEffect(element, textArray, index + 1);
-                        }, 1); // Time gap between lines
-                    }
-                }, 0);
-            } else {
-                // Text animation completed, fade in the next div
-                fadeInNextDiv(nextDiv);
-                setTimeout(()=>{
-                    fadeInNextDiv(soonDiv);
-                },1000)
-                    
-                
-            }
-        } else {
-            element.innerHTML += currentText[i];
-            i++;
+      /* .card h5,
+      .card h6 {
+        visibility: hidden;
+      }
+
+      .card:hover h5,
+      .card:hover h6 {
+        visibility: visible;
+      } */
+
+      .contact-section {
+        background-color: #111c46;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin-top: 80px;
+        position: relative; /* Add position relative for pseudo-element */
+        overflow: hidden;
+      }
+
+      .contact-section h3 {
+        margin-bottom: 10px;
+      }
+
+      .contact-section p {
+        margin-bottom: 20px;
+      }
+
+      /* Social media icon styles */
+      .social-icons {
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 32px; /* Increase size */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #0056b3; /* Darker color on hover */
+      }
+
+      @media (max-width: 768px) {
+        .what-we-do-wrapper{
+          flex-direction: column;
         }
-    }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Particle.js Background -->
+    <div id="particles-js" class="bgParticles"></div>
 
-    interval = setInterval(appendNextCharacter, 50); // Typing speed
-}
+    <div class="bgAnim">
+      <img src="./assets/gif/gradient4.gif" alt="" srcset="" />
+    </div>
+    <div class="bgBlur"></div>
 
+    <div class="page-root">
+      <div class="page-container">
+        <nav class="fixed">
+          <div class="flex">
+            <img src="./assets/img/aca_logo.png" alt="ACA Logo" height="32px" />
+            <div style="padding-left: 1rem">
+              <p style="font-size: 0.9rem">Association of Computer Applications</p>
+              <p style="font-size: 0.75rem">College of Engineering, Guindy</p>
+            </div>
+          </div>
+        </nav>
+        <div class="hero-wrapper">
+          <div class="hero flex fdc">
+            <h1>ASSOCIATION OF COMPUTER APPLICATION</h1>
+            <h2>COLLEGE OF ENGINEERING GUINDY</h2>
+            <h3
+              style="
+                margin-top: 5rem;
+                font-style: italic;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+              "
+            >
+              "Tech minds, united and inspired"
+            </h3>
+          </div>
+          <p onclick="scrollDown()" style="text-align: center" class="clickable">Scroll Down</p>
+        </div>
+        <div class="who-we-are">
+          <h3>Who we are</h3>
+          <p style="text-align: center; font-size: 0.9rem">
+            The Association of Computer Applications (ACA) at the College of Engineering Guindy (CEG) is formulated to conduct computer
+            applications-related activities and symposiums throughout the year. With CEG's renowned legacy of excellence in technical
+            education and its commitment to nurturing bright minds, ACA plays a crucial role in enhancing the academic experience of
+            students through active participation. This collaboration continues CEG's tradition of guiding students towards excellence and
+            contributing to their growth as future leaders in the field of technology.
+          </p>
+        </div>
+        <div class="what-we-do" style="margin-top: 5rem">
+          <h3>What we do</h3>
+          <div class="what-we-do-wrapper flex aic jcc fdr" style="margin-top: 2rem; padding: 0 2rem">
+            <div class="" style="max-width: 350px; margin: 2rem">
+              <div class="what-we-do-card" style="width: inherit">
+                <div class="swiper-container special-effects">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./assets/img/Niral_logo.jpg" alt="" width="350px" /></div>
+                    <div class="swiper-slide"><img src="./assets/img/slide1.png" alt="" width="350px" /></div>
+                    <div class="swiper-slide"><img src="./assets/img/slide2.png" alt="" width="350px" /></div>
+                    <div class="swiper-slide"><img src="./assets/img/slide3.png" alt="" width="350px" /></div>
+                    <div class="swiper-slide"><img src="./assets/img/slide4.png" alt="" width="350px" /></div>
+                    <div class="swiper-slide"><img src="./assets/img/slide5.png" alt="" width="350px" /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 style="font-size: 1.8rem; text-align: center; margin-bottom: 1rem">NIRAL</h4>
+              <p style="text-align: center; font-size: 0.9rem">
+                Niral is a national level technical symposium organized by the postgraduate students of MCA started from the year 2011. This
+                is a symposium that has an implied academic aspect that distinguishes it from other symposiums. Through this symposium,
+                every student is given an opportunity of greater degree knowledge. It would be a great platform to showcase the aspiring
+                technical skill, co-curricular activities and come out with flying colors.
+              </p>
+            </div>
+          </div>
+          <div class="the-team" style="margin-top: 5rem">
+            <h3>The Team</h3>
+            <div class="container flex jcc">
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/KiruthikSKumar.jpg" alt="" />
+                <h5>Kiruthik S Kumar</h5>
+                <h6>Chairperson</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/Kavya.jpg" alt="" />
+                <h5>Kavya S</h5>
+                <h6>Vice Chairperson</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/GeorgeLifinRell.png" alt="" />
+                <h5>George Lifin Rell V</h5>
+                <h6>General Secretary</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/NaveenM.jpg" alt="" />
+                <h5>Naveen M</h5>
+                <h6>Student Treasurer</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/ob5.jpg" alt="" />
+                <h5>Abishek C P</h5>
+                <h6>Student Director - TechOps</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/Visagan.jpg" alt="" />
+                <h5>Visagan S</h5>
+                <h6>Student Director - TechOps</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/Renuga.jpg" alt="" />
+                <h5>Renuga S</h5>
+                <h6>Event Co-ordinator</h6>
+              </div>
+              <!-- <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/ob5.jpg" alt="" />
+                <h5>Dinesh Kumar S</h5>
+                <h6>Event Co-ordinator</h6>
+              </div> -->
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/Saravana.jpg" alt="" />
+                <h5>Saravana Kumar J</h5>
+                <h6>Sponsorship</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/aravind.jpg" alt="" />
+                <h5>Aravind N</h5>
+                <h6>Marketing</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/yogi.jpg" alt="" />
+                <h5>Yogesh M</h5>
+                <h6>Public Relations</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/Varalakshmi.jpg" alt="" />
+                <h5>Varalakshmi G</h5>
+                <h6>Photography</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/ShivaBalan.jpeg" alt="" />
+                <h5>Shiva Balan K</h5>
+                <h6>Photography</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/A.K.Aiswariya.jpg" alt="" />
+                <h5>Aiswariya A K</h5>
+                <h6>Hospitality</h6>
+              </div>
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/SOUNDHARYA.jpg" alt="" />
+                <h5>Soundharya R</h5>
+                <h6>Hospitality</h6>
+              </div>
+              <!-- <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/ob5.jpg" alt="" />
+                <h5>Bhuvan N</h5>
+                <h6>Design</h6>
+              </div> -->
+              <!-- <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/ob5.jpg" alt="" />
+                <h5>Yogeshwaran R</h5>
+                <h6>Design</h6>
+              </div> -->
+              <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/Susmitha.jpg" alt="" />
+                <h5>Sushmitha AT</h5>
+                <h6>Alumni Relations</h6>
+              </div>
+              <!-- <div class="card flex aic jcc fdc">
+                <img src="./assets/img/ob/ob5.jpg" alt="" />
+                <h5>Sharon F</h5>
+                <h6>Report</h6>
+              </div> -->
+            </div>
+          </div>
+          <!-- <div class="contact-section" id="contact">
+            <h3>Contact Us</h3>
+            <p>If you have any questions, feel free to contact us:</p>
+            <p>Email: contact@example.com</p>
+            <p>Phone: +1234567890</p>
 
-function fadeInNextDiv(div) {
-    setTimeout(() => {
-        div.style.opacity = "1"; // Fade in the next div
-    }, 1000);// Delay the fade in effect after the text animation
-}
+            <div class="social-media-icons">
+              <a href="https://www.instagram.com" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+              <a href="https://www.linkedin.com" target="_blank"><i class="bx bxl-linkedin-square"></i></a>
+              <a href="mailto:contact@example.com"><i class='bx bxs-envelope'></i></a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
 
-textTypingEffect(div, texts);
+    <!-- <script src="./cursor_tail_trial/script.js"></script> -->
+    <!-- Particle.js script -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: '#ffffff',
+          },
+          shape: {
+            type: 'circle',
+            stroke: {
+              width: 0,
+              color: '#000000',
+            },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'repulse',
+            },
+            onclick: {
+              enable: true,
+              mode: 'push',
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 250,
+              size: 0,
+              duration: 2,
+              opacity: 0.8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 400,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      })
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      // Special Effects Carousel
+      var specialEffectsSwiper = new Swiper('.special-effects', {
+        effect: 'fade', // Special effect
+        autoplay: {
+          delay: 3000, // Auto-scroll delay
+        },
+        loop: true, // Loop through slides
+      })
+    </script>
+    <script>
+      const scrollDown = () => {
+        document.querySelector('.page-root').scrollBy({
+    top: 0.78 * window.screen.availHeight,
+    left: 0,
+    behavior: 'smooth'
+});
 
-</script>
-<script src="./cursor_tail_trial/script.js"></script>
-<script src="./glowing_corners/script.js"></script>
-</body>
+      }
+    </script>
+  </body>
 </html>
