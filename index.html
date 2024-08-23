@@ -21,6 +21,16 @@
       rel="stylesheet"
     />
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
       body {
         margin: 0;
         font-family: 'Open Sans', sans-serif;
@@ -30,13 +40,21 @@
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: cover;
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+        overflow: hidden;
       }
       .page-root {
         width: 100vw;
-        height: 100vh;
-        height: 100dvh;
-        overflow: auto;
+        height: 101vh;
+        height: 101dvh;
+        overflow: hidden;
         position: relative; /* To ensure the particle effect is properly layered */
+      }
+      .page-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
       }
       .bgParticles {
         position: absolute;
@@ -53,6 +71,7 @@
         height: 100vh;
         height: 100dvh;
         width: 100%;
+        overflow: hidden;
         z-index: -9;
       }
       .bgAnim img {
@@ -61,7 +80,7 @@
       }
       .bgBlur {
         position: fixed;
-        overflow-x: hidden;
+        overflow: hidden;
         top: 0;
         left: 0;
         width: 100%;
@@ -79,7 +98,7 @@
         margin: 10vh auto 0;
         position: relative; /* Ensure the content is above the particles */
         z-index: 10;
-        background: linear-gradient(180deg, #00000010 10%,#00000050 80%, #00000090 90%, #000000 100%);
+        background: linear-gradient(180deg, #00000010 10%, #00000050 80%, #00000090 90%, #000000 100%);
       }
 
       h1,
@@ -179,46 +198,21 @@
         visibility: visible;
       } */
 
-      .contact-section {
-        background-color: #111c46;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-        margin-top: 80px;
-        position: relative; /* Add position relative for pseudo-element */
-        overflow: hidden;
-      }
-
-      .contact-section h3 {
-        margin-bottom: 10px;
-      }
-
-      .contact-section p {
-        margin-bottom: 20px;
-      }
-
-      /* Social media icon styles */
-      .social-icons {
-        margin-top: 20px;
-      }
-
-      .social-icons a {
-        display: inline-block;
-        margin-right: 20px;
-        font-size: 32px; /* Increase size */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .social-icons a:hover {
-        color: #0056b3; /* Darker color on hover */
-      }
-
       @media (max-width: 768px) {
-        .what-we-do-wrapper{
+        .what-we-do-wrapper {
           flex-direction: column;
         }
-        
+        .card{
+          width: 264px;
+    height: 340px;
+        }
+        .contact{
+          flex-direction: column;
+          text-align: center;
+        }
+        .logo{
+          flex-direction: column;
+        }
       }
     </style>
   </head>
@@ -232,182 +226,237 @@
     <div class="bgBlur"></div>
 
     <div class="page-root">
-      <div class="page-container">
-        <nav class="fixed">
-          <div class="flex">
-            <img src="./assets/img/aca_logo.png" alt="ACA Logo" height="32px" />
-            <div style="padding-left: 1rem">
-              <p style="font-size: 0.9rem">Association of Computer Applications</p>
-              <p style="font-size: 0.75rem">College of Engineering, Guindy</p>
+      <div class="page-wrapper">
+        <div class="page-container">
+          <nav class="fixed " >
+            <div class="flex " >
+              <img src="./assets/img/aca_logo.png" class="clickable" alt="ACA Logo" height="32px" onclick="document.querySelector('.page-wrapper').scrollTo(0, 0);"/>
+              <div style="padding-left: 1rem">
+                <p style="font-size: 0.7rem; text-transform: uppercase;">Association of Computer Application</p>
+                <p style="font-size: 0.6rem;text-transform: uppercase;">College of Engineering Guindy</p>
+              </div>
             </div>
+          </nav>
+          <div class="hero-wrapper">
+            <div class="hero flex fdc">
+              <h1 style="text-transform: uppercase;">Association of Computer Application</h1>
+              <h2 style="text-transform: uppercase;">College of Engineering Guindy</h2>
+              <h3
+                style="
+                  margin-top: 5rem;
+                  font-style: italic;
+                  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                "
+              >
+                "Tech minds, united and inspired"
+              </h3>
+            </div>
+            <p onclick="scrollDown()" style="text-align: center" class="clickable flex jcc scroll-btn"><i class='bx bx-down-arrow-alt' style="border: .7px solid white; border-radius: 50%;font-size: larger;margin: 8px;padding: 8px;"></i></p>
           </div>
-        </nav>
-        <div class="hero-wrapper">
-          <div class="hero flex fdc">
-            <h1>ASSOCIATION OF COMPUTER APPLICATION</h1>
-            <h2>COLLEGE OF ENGINEERING GUINDY</h2>
-            <h3
-              style="
-                margin-top: 5rem;
-                font-style: italic;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-              "
-            >
-              "Tech minds, united and inspired"
-            </h3>
+          <div class="who-we-are">
+            <h3>Who we are</h3>
+            <p style="text-align: center; font-size: 0.9rem">
+              The Association of Computer Application (ACA) at the College of Engineering Guindy (CEG) is formulated to conduct computer
+              applications related activities and symposiums throughout the year. With CEG's renowned legacy of excellence in technical
+              education and its commitment to nurturing bright minds, ACA plays a crucial role in enhancing the academic experience of
+              students through active participation. This collaboration continues CEG's tradition of guiding students towards excellence and
+              contributing to their growth as future leaders in the field of technology.
+            </p>
           </div>
-          <p onclick="scrollDown()" style="text-align: center" class="clickable">Scroll Down</p>
-        </div>
-        <div class="who-we-are">
-          <h3>Who we are</h3>
-          <p style="text-align: center; font-size: 0.9rem">
-            The Association of Computer Applications (ACA) at the College of Engineering Guindy (CEG) is formulated to conduct computer
-            applications-related activities and symposiums throughout the year. With CEG's renowned legacy of excellence in technical
-            education and its commitment to nurturing bright minds, ACA plays a crucial role in enhancing the academic experience of
-            students through active participation. This collaboration continues CEG's tradition of guiding students towards excellence and
-            contributing to their growth as future leaders in the field of technology.
-          </p>
-        </div>
-        <div class="what-we-do" style="margin-top: 5rem">
-          <h3>What we do</h3>
-          <div class="what-we-do-wrapper flex aic jcc fdr" style="margin-top: 2rem; padding: 0 2rem">
-            <div class="" style="max-width: 350px; margin: 2rem">
-              <div class="what-we-do-card" style="width: inherit">
-                <div class="swiper-container special-effects">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="./assets/img/Niral_logo.jpg" alt="" width="350px" /></div>
-                    <div class="swiper-slide"><img src="./assets/img/slide1.png" alt="" width="350px" /></div>
-                    <div class="swiper-slide"><img src="./assets/img/slide2.png" alt="" width="350px" /></div>
-                    <div class="swiper-slide"><img src="./assets/img/slide3.png" alt="" width="350px" /></div>
-                    <div class="swiper-slide"><img src="./assets/img/slide4.png" alt="" width="350px" /></div>
-                    <div class="swiper-slide"><img src="./assets/img/slide5.png" alt="" width="350px" /></div>
+          <div class="what-we-do" style="margin-top: 5rem">
+            <h3>What we do</h3>
+            <div class="what-we-do-wrapper flex aic jcc fdr" style="margin-top: 2rem; padding: 0 2rem">
+              <div class="" style="max-width: 350px; margin: 2rem">
+                <div class="what-we-do-card" style="width: inherit">
+                  <div class="swiper-container special-effects">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide"><img src="./assets/img/Niral_logo.jpg" alt="" width="350px" /></div>
+                      <div class="swiper-slide"><img src="./assets/img/slide1.png" alt="" width="350px" /></div>
+                      <div class="swiper-slide"><img src="./assets/img/slide2.png" alt="" width="350px" /></div>
+                      <div class="swiper-slide"><img src="./assets/img/slide3.png" alt="" width="350px" /></div>
+                      <div class="swiper-slide"><img src="./assets/img/slide4.png" alt="" width="350px" /></div>
+                      <div class="swiper-slide"><img src="./assets/img/slide5.png" alt="" width="350px" /></div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div>
+                <h4 style="font-size: 1.8rem; text-align: center; margin-bottom: 1rem">NIRAL</h4>
+                <p style="text-align: center; font-size: 0.9rem">
+                  Niral is a national level technical symposium organized by the postgraduate students of MCA, started from the year 2011.
+                  This is a symposium that has an implied academic aspect that distinguishes it from other symposiums. Through this
+                  symposium, every student is given an opportunity of greater degree knowledge. It would be a great platform to showcase the
+                  aspiring technical skill, co-curricular activities and come out with flying colors.
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 style="font-size: 1.8rem; text-align: center; margin-bottom: 1rem">NIRAL</h4>
-              <p style="text-align: center; font-size: 0.9rem">
-                Niral is a national level technical symposium organized by the postgraduate students of MCA started from the year 2011. This
-                is a symposium that has an implied academic aspect that distinguishes it from other symposiums. Through this symposium,
-                every student is given an opportunity of greater degree knowledge. It would be a great platform to showcase the aspiring
-                technical skill, co-curricular activities and come out with flying colors.
-              </p>
-            </div>
-          </div>
-          <div class="the-team" style="margin-top: 5rem">
-            <h3>The Team</h3>
-            <div class="container flex jcc">
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/KiruthikSKumar.jpg" alt="" />
-                <h5>Kiruthik S Kumar</h5>
-                <h6>Chairperson</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/Kavya.jpg" alt="" />
-                <h5>Kavya S</h5>
-                <h6>Vice Chairperson</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/GeorgeLifinRell.png" alt="" />
-                <h5>George Lifin Rell V</h5>
-                <h6>General Secretary</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/NaveenM.jpg" alt="" />
-                <h5>Naveen M</h5>
-                <h6>Student Treasurer</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/ob5.jpg" alt="" />
-                <h5>Abishek C P</h5>
-                <h6>Student Director - TechOps</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/Visagan.jpg" alt="" />
-                <h5>Visagan S</h5>
-                <h6>Student Director - TechOps</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/Renuga.jpg" alt="" />
-                <h5>Renuga S</h5>
-                <h6>Event Co-ordinator</h6>
-              </div>
-              <!-- <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/ob5.jpg" alt="" />
-                <h5>Dinesh Kumar S</h5>
-                <h6>Event Co-ordinator</h6>
-              </div> -->
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/Saravana.jpg" alt="" />
-                <h5>Saravana Kumar J</h5>
-                <h6>Sponsorship</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/aravind.jpg" alt="" />
-                <h5>Aravind N</h5>
-                <h6>Marketing</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/yogi.jpg" alt="" />
-                <h5>Yogesh M</h5>
-                <h6>Public Relations</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/Varalakshmi.jpg" alt="" />
-                <h5>Varalakshmi G</h5>
-                <h6>Photography</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/ShivaBalan.jpeg" alt="" />
-                <h5>Shiva Balan K</h5>
-                <h6>Photography</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/A.K.Aiswariya.jpg" alt="" />
-                <h5>Aiswariya A K</h5>
-                <h6>Hospitality</h6>
-              </div>
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/SOUNDHARYA.jpg" alt="" />
-                <h5>Soundharya R</h5>
-                <h6>Hospitality</h6>
-              </div>
-              <!-- <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/ob5.jpg" alt="" />
-                <h5>Bhuvan N</h5>
-                <h6>Design</h6>
-              </div> -->
-              <!-- <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/ob5.jpg" alt="" />
-                <h5>Yogeshwaran R</h5>
-                <h6>Design</h6>
-              </div> -->
-              <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/Susmitha.jpg" alt="" />
-                <h5>Sushmitha AT</h5>
-                <h6>Alumni Relations</h6>
-              </div>
-              <!-- <div class="card flex aic jcc fdc">
-                <img src="./assets/img/ob/ob5.jpg" alt="" />
-                <h5>Sharon F</h5>
-                <h6>Report</h6>
-              </div> -->
-            </div>
-          </div>
-          <!-- <div class="contact-section" id="contact">
-            <h3>Contact Us</h3>
-            <p>If you have any questions, feel free to contact us:</p>
-            <p>Email: contact@example.com</p>
-            <p>Phone: +1234567890</p>
+            <div class="the-team" style="margin-top: 5rem">
+              <h3>The Team</h3>
+              <div class="container flex jcc">
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/KiruthikSKumar.jpg" alt="" />
+                  <h5>Kiruthik S Kumar</h5>
+                  <h6>Chairperson</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Kavya.jpg" alt="" />
+                  <h5>Kavya S</h5>
+                  <h6>Vice Chairperson</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/GeorgeLifinRell.png" alt="" />
+                  <h5>George Lifin Rell V</h5>
+                  <h6>General Secretary</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/NaveenM.jpg" alt="" />
+                  <h5>Naveen M</h5>
+                  <h6>Student Treasurer</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/AbishekCP.jpg" alt="" />
+                  <h5>Abishek C P</h5>
+                  <h6>Director - TechOps</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Visagan.jpg" alt="" />
+                  <h5>Visagan S</h5>
+                  <h6>Joint Director - TechOps & Coordinator (SS) - Placements</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Renuga.jpg" alt="" />
+                  <h5>Renuga S</h5>
+                  <h6>Coordinator - Events</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Dinesh.jpg" alt="" />
+                  <h5>Dinesh Kumar S</h5>
+                  <h6>Joint Coordinator - Events</h6>
+                </div>
 
-            <div class="social-media-icons">
-              <a href="https://www.instagram.com" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
-              <a href="https://www.linkedin.com" target="_blank"><i class="bx bxl-linkedin-square"></i></a>
-              <a href="mailto:contact@example.com"><i class='bx bxs-envelope'></i></a>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Saravana.jpg" alt="" />
+                  <h5>Saravana Kumar J</h5>
+                  <h6>Sponsorship</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/aravind.jpg" alt="" />
+                  <h5>Aravind N</h5>
+                  <h6>Marketing</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/yogi.jpg" alt="" />
+                  <h5>Yogesh M</h5>
+                  <h6>Public Relations</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Varalakshmi.jpg" alt="" />
+                  <h5>Varalakshmi G</h5>
+                  <h6>Photography</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/ShivaBalan.jpg" alt="" />
+                  <h5>Shiva Balan K</h5>
+                  <h6>Photography</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/A.K.Aiswariya.jpg" alt="" />
+                  <h5>Aiswariya A K</h5>
+                  <h6>Hospitality</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/SOUNDHARYA.jpg" alt="" />
+                  <h5>Soundharya R</h5>
+                  <h6>Hospitality</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Bhuvan.jpg" alt="" />
+                  <h5>Bhuvan N</h5>
+                  <h6>Design</h6>
+                </div>
+                <!-- <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/ob5.jpg" alt="" />
+                  <h5>Yogeshwaran R</h5>
+                  <h6>Design</h6>
+                </div> -->
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Susmitha.jpg" alt="" />
+                  <h5>Sushmitha AT</h5>
+                  <h6>Alumni Relations</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/SharonF.jpg" alt="" />
+                  <h5>Sharon F</h5>
+                  <h6>Report</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/PraveenKumar.jpg" alt="" />
+                  <h5>Praveen Kumar DK</h5>
+                  <h6>Coordinator (Reg) - Placements</h6>
+                </div>
+
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/Kokila.jpg" alt="" />
+                  <h5>Kokila R</h5>
+                  <h6>Joint Coordinator (Reg) - Placements</h6>
+                </div>
+
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/ShreeDharshana.jpg" alt="" />
+                  <h5>Shree Dharshana</h5>
+                  <h6>Joint Coordinator (SS) - Placements</h6>
+                </div>
+ 
+              </div>
             </div>
-          </div> -->
+            <!-- <div class="contact-section" id="contact">
+              <h3>Contact Us</h3>
+              <p>If you have any questions, feel free to contact us:</p>
+              <p>Email: contact@example.com</p>
+              <p>Phone: +1234567890</p>
+  
+              <div class="social-media-icons">
+                <a href="https://www.instagram.com" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="bx bxl-linkedin-square"></i></a>
+                <a href="mailto:contact@example.com"><i class='bx bxs-envelope'></i></a>
+              </div>
+            </div> -->
+          </div>
         </div>
+        <div class="footer" style="background-color: #000000;  margin-bottom: -10px">
+          <h3 style="padding-top: 4rem; margin: 0;background-image: linear-gradient(180deg, #ffffff 40%, #ffffff99 100%);">Contact Us</h3>
+          <div class="contact flex jcsb aic">
+            <div
+              class=""
+              style="
+                color: #ffffff;
+                padding: 2rem 2rem 0;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 300;
+              "
+            >
+              <div class="flex fdc jcsb">
+                <div>
+                  <h5 style="font-size: 1.1rem; margin-bottom: 0.5rem ;font-weight: 300;">Association of Computer Application</h5>
+              <h6 style="font-size: 0.95rem; margin-bottom: 0.2rem;font-weight: 300;">Department of Information Science and Technology</h6>
+              <h6 style="font-size: 0.9rem; margin-bottom: 0.2rem;font-weight: 300;">College of Engineering Guindy</h6>
+              <h6 style="font-size: 0.8rem; margin-bottom: 1rem;font-weight: 300;">Chennai, Tamil Nadu</h6>
+                </div>
+                <div>
+                  <p style="font-weight: 300;font-size: .7rem;">Email:<br><a href="mailto:cegniral@gmail.com" style="all: unset; color: #ffffff" class="clickable">cegniral@gmail.com</a></p>
+                  <p style="font-weight: 300;font-size: .7rem;">Phone:<br> <a href="tel:+91 94437 11377" style="all: unset; color: #ffffff" class="clickable">+91 94437 11377</a> (Kiruthik S Kumar)</p>
+                </div>
+              </div>
+            </div>
+            <div class="logo flex aic jcc" style="display:flex;padding: 2rem 2rem 0; ">
+              <img src="./assets/img/aca_logo.png" width="200px" height="100px" alt="ACA Logo" style="margin: 2rem 0;">
+              <img src="./assets/img/ceg_logo.png" width="200px" height="202px" alt="CEG Logo">
+            </div>
+          </div>
+        <br>
+        <br>
+        </div>
+
       </div>
     </div>
 
@@ -531,12 +580,7 @@
     </script>
     <script>
       const scrollDown = () => {
-        document.querySelector('.page-root').scrollBy({
-    top: 0.78 * window.screen.availHeight,
-    left: 0,
-    behavior: 'smooth'
-});
-
+        document.querySelector('.scroll-btn').scrollIntoView({ behavior: 'smooth' })
       }
     </script>
   </body>
