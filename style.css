@@ -3,9 +3,246 @@
     src: url("./assets/fonts/Peter Quincy Sans.otf") format("opentype");
   }
 
-*{
-    padding: 0;
+  * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: aliceblue;
+    background-color: #000000;
+    /* background: black; */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: cover;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    overflow: hidden;
+  }
+  .page-root {
+    width: 100vw;
+    height: 101vh;
+    height: 101dvh;
+    overflow: hidden;
+    position: relative; /* To ensure the particle effect is properly layered */
+  }
+  .page-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+  .bgParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10; /* Place behind content */
+  }
+  .bgAnim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    overflow: hidden;
+    z-index: -9;
+  }
+  .bgAnim img {
+    width: 100%;
+    height: 100vh;
+  }
+  .bgBlur {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: -8;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+  }
+
+  .page-container {
+    width: 100%;
+    padding: 0 10%;
+    margin: 10vh auto 0;
+    position: relative; /* Ensure the content is above the particles */
+    z-index: 10;
+    background: linear-gradient(180deg, #00000010 10%, #00000050 80%, #00000090 90%, #000000 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-align: center;
+    font-weight: 300;
+    background-image: linear-gradient(180deg, #ffffff 40%, #ffffff38 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'peter quency';
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background: rgba(0, 0, 0, 0.412);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 11;
+    padding: 0 5vw;
+  }
+  .hero-wrapper {
+    height: 90;
+    height: 90dvh;
+  }
+  .hero {
+    width: 100%;
+    height: 80vh;
+    height: 80dvh;
+    align-items: center;
+    justify-content: center;
+  }
+  .who-we-are {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
+  h3 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .the-team .container {
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 208px;
+    height: 280px;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 1rem;
+  }
+
+  /* .card:hover { */
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .card h5 {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .card h6 {
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+  .card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+  .hover-underline{
+    text-decoration: none;
+  }
+  .hover-underline:hover {
+    text-decoration: underline;
+  }
+
+  /* .card h5,
+  .card h6 {
+    visibility: hidden;
+  }
+
+  .card:hover h5,
+  .card:hover h6 {
+    visibility: visible;
+  } */
+
+  .hr-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem 0;
 }
+
+.decorated-hr {
+    border: 0;
+    height: .5px; /* Line thickness */
+    background: #bebebe; /* Line color */
+    position: relative;
+    width: 60vw; /* Line width */
+}
+
+.decorated-hr::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px; /* Decoration width */
+    height: .5px; /* Decoration thickness */
+    background: #ffffff; /* Decoration color */
+    transform: translateX(-50%); /* Center the decoration */
+    border-radius: 2px;
+}
+
+.decorated-hr::after {
+    content: '';
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    width: 20px; /* Decoration width */
+    height: .5px; /* Decoration thickness */
+    background: #d3d3d3; /* Decoration color */
+    transform: translateX(-50%); /* Center the decoration */
+    border-radius: 2px;
+    transform: translateX(-50%) rotate(45deg); /* Angle decoration */
+}
+
+
+  @media (max-width: 768px) {
+    .what-we-do-wrapper {
+      flex-direction: column !important;
+    }
+    .card {
+      width: 264px;
+      height: 340px;
+      margin: 1rem 0.3rem;
+    }
+    .contact {
+      flex-direction: column;
+      text-align: center;
+    }
+    .logo {
+      flex-direction: column;
+    }
+  }
 

@@ -3,224 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACA - Niral 2024</title>
-    <link rel="shortcut icon" href="./aca_logo.png" type="image/x-icon" />
+    <title>ACA - Association of Computer Application</title>
+    <meta
+      name="description"
+      content="The Association of Computer Application (ACA) at the College of Engineering Guindy (CEG) organizes technical events and symposiums, including NIRAL, a national-level symposium started in 2011. ACA enhances students' technical education and provides a platform for showcasing skills and gaining knowledge."
+    />
+    <meta
+      name="keywords"
+      content="Association of Computer Application, ACA College of Engineering Guindy, CEG technical symposiums, NIRAL symposium 2024, MCA national-level events, computer applications conference, technical education events, CEG student activities, technical skill showcase, MCA postgraduate symposium"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon_package_v0.16/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon_package_v0.16/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon_package_v0.16/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/img/favicon_package_v0.16/site.webmanifest" />
+    <link rel="mask-icon" href="./assets/img/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="ACA - Association of Computer Application" />
+    <meta
+      property="og:description"
+      content="The Association of Computer Application (ACA) at the College of Engineering Guindy (CEG) organizes technical events and symposiums, including NIRAL, a national-level symposium started in 2011. ACA enhances students' technical education and provides a platform for showcasing skills and gaining knowledge."
+    />
+    <meta property="og:image" content="./assets/img/aca_logo.png" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:type" content="website" />
+
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./default.css" />
     <link rel="stylesheet" href="./cursor_tail_trial/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
-      rel="stylesheet"
-    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poetsen+One&family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-        scrollbar-width: none;
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      body {
-        margin: 0;
-        font-family: 'Open Sans', sans-serif;
-        color: aliceblue;
-        background-color: #000000;
-        /* background: black; */
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: cover;
-        overflow: -moz-scrollbars-none;
-        -ms-overflow-style: none;
-        overflow: hidden;
-      }
-      .page-root {
-        width: 100vw;
-        height: 101vh;
-        height: 101dvh;
-        overflow: hidden;
-        position: relative; /* To ensure the particle effect is properly layered */
-      }
-      .page-wrapper {
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-      }
-      .bgParticles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -10; /* Place behind content */
-      }
-      .bgAnim {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        height: 100dvh;
-        width: 100%;
-        overflow: hidden;
-        z-index: -9;
-      }
-      .bgAnim img {
-        width: 100%;
-        height: 100vh;
-      }
-      .bgBlur {
-        position: fixed;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-        z-index: -8;
-        background: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(100px);
-        -webkit-backdrop-filter: blur(100px);
-      }
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.bundle.min.js"></script>
 
-      .page-container {
-        width: 100%;
-        padding: 0 10%;
-        margin: 10vh auto 0;
-        position: relative; /* Ensure the content is above the particles */
-        z-index: 10;
-        background: linear-gradient(180deg, #00000010 10%, #00000050 80%, #00000090 90%, #000000 100%);
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        text-align: center;
-        font-weight: 300;
-        background-image: linear-gradient(180deg, #ffffff 40%, #ffffff38 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        font-family: 'peter quency';
-      }
-
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-      nav {
-        position: fixed;
-        display: flex;
-        align-items: center;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 10vh;
-        background: rgba(0, 0, 0, 0.412);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        z-index: 11;
-        padding: 0 5vw;
-      }
-      .hero-wrapper {
-        height: 90;
-        height: 90dvh;
-      }
-      .hero {
-        width: 100%;
-        height: 80vh;
-        height: 80dvh;
-        align-items: center;
-        justify-content: center;
-      }
-      .who-we-are {
-        padding: 2rem;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 10px;
-        font-size: 1.1rem;
-        line-height: 1.5rem;
-      }
-      h3 {
-        text-align: center;
-        font-weight: 400;
-        margin-bottom: 1rem;
-      }
-      .the-team .container {
-        flex-wrap: wrap;
-      }
-      .card {
-        width: 208px;
-        height: 280px;
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 1rem 1rem;
-      }
-
-      /* .card:hover { */
-      .card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-      .card h5 {
-        text-align: center;
-        margin-top: 1rem;
-      }
-      .card h6 {
-        text-align: center;
-        margin-top: 0.3rem;
-      }
-      .card img {
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-      }
-
-      /* .card h5,
-      .card h6 {
-        visibility: hidden;
-      }
-
-      .card:hover h5,
-      .card:hover h6 {
-        visibility: visible;
-      } */
-
-      @media (max-width: 768px) {
-        .what-we-do-wrapper {
-          flex-direction: column;
-        }
-        .card{
-          width: 264px;
-    height: 340px;
-    margin: 1rem .3rem;
-
-        }
-        .contact{
-          flex-direction: column;
-          text-align: center;
-        }
-        .logo{
-          flex-direction: column;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Particle.js Background -->
-    <div id="particles-js" class="bgParticles"></div>
+    <!-- <div id="particles-js" class="bgParticles"></div> -->
+    <div id="tsparticles"></div>
 
     <div class="bgAnim">
       <img src="./assets/gif/gradient4.gif" alt="" srcset="" />
@@ -230,19 +53,26 @@
     <div class="page-root">
       <div class="page-wrapper">
         <div class="page-container">
-          <nav class="fixed " >
-            <div class="flex " >
-              <img src="./assets/img/aca_logo.png" class="clickable" alt="ACA Logo" height="32px" onclick="document.querySelector('.page-wrapper').scrollTo(0, 0);"/>
+          <nav class="fixed">
+            <div class="flex">
+              <img
+                src="./assets/img/aca_logo.png"
+                class="clickable"
+                alt="ACA Logo"
+                height="32px"
+                onclick="document.querySelector('.page-wrapper').scrollTo(0, 0);"
+                style="padding-bottom:  6px;"
+                />
               <div style="padding-left: 1rem">
-                <p style="font-size: 0.7rem; text-transform: uppercase;">Association of Computer Application</p>
-                <p style="font-size: 0.6rem;text-transform: uppercase;">College of Engineering Guindy</p>
+                <p style="font-size: 0.7rem; text-transform: uppercase">Association of Computer Application</p>
+                <p style="font-size: 0.6rem; text-transform: uppercase">College of Engineering Guindy</p>
               </div>
             </div>
           </nav>
           <div class="hero-wrapper">
             <div class="hero flex fdc">
-              <h1 style="text-transform: uppercase;">Association of Computer Application</h1>
-              <h2 style="text-transform: uppercase;">College of Engineering Guindy</h2>
+              <h1 style="text-transform: uppercase">Association of Computer Application</h1>
+              <h2 style="text-transform: uppercase">College of Engineering Guindy</h2>
               <h3
                 style="
                   margin-top: 5rem;
@@ -253,7 +83,12 @@
                 "Tech minds, united and inspired"
               </h3>
             </div>
-            <p onclick="scrollDown()" style="text-align: center" class="clickable flex jcc scroll-btn"><i class='bx bx-down-arrow-alt' style="border: .7px solid white; border-radius: 50%;font-size: larger;margin: 8px;padding: 8px;"></i></p>
+            <p onclick="scrollDown()" style="text-align: center" class="clickable flex jcc scroll-btn">
+              <i
+                class="bx bx-down-arrow-alt"
+                style="border: 0.7px solid white; border-radius: 50%; font-size: larger; margin: 8px; padding: 8px"
+              ></i>
+            </p>
           </div>
           <div class="who-we-are">
             <h3>Who we are</h3>
@@ -294,6 +129,26 @@
             </div>
             <div class="the-team" style="margin-top: 5rem">
               <h3>The Team</h3>
+              <div class="container flex jcc">
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/ProfSSwamynathan.jpg" alt="" />
+                  <h5>Prof. S. Swamynathan</h5>
+                  <h6>Head, DIST</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/DrMVijayalakshmi.jpg" alt="" />
+                  <h5>Dr. M. Vijayalakshmi</h5>
+                  <h6>President, ACA</h6>
+                </div>
+                <div class="card flex aic jcc fdc">
+                  <img src="./assets/img/ob/DrAbiramiMurugappan.jpg" alt="" />
+                  <h5>Dr. Abirami Murugappan</h5>
+                  <h6>Treasurer, ACA</h6>
+                </div>
+              </div>
+              <div class="hr-container">
+                <hr class="decorated-hr">
+            </div>
               <div class="container flex jcc">
                 <div class="card flex aic jcc fdc">
                   <img src="./assets/img/ob/KiruthikSKumar.jpg" alt="" />
@@ -408,7 +263,6 @@
                   <h5>Shree Dharshana</h5>
                   <h6>Joint Coordinator (SS) - Placements</h6>
                 </div>
- 
               </div>
             </div>
             <!-- <div class="contact-section" id="contact">
@@ -425,150 +279,150 @@
             </div> -->
           </div>
         </div>
-        <div class="footer" style="background-color: #000000;  margin-bottom: -10px">
-          <h3 style="padding-top: 4rem; margin: 0;background-image: linear-gradient(180deg, #ffffff 40%, #ffffff99 100%);">Contact Us</h3>
+        <div class="footer" style="background-color: #000000; margin-bottom: -10px">
+          <h3 style="padding-top: 4rem; margin: 0; background-image: linear-gradient(180deg, #ffffff 40%, #ffffff99 100%)">Contact Us</h3>
           <div class="contact flex jcsb aic">
-            <div
-              class=""
-              style="
-                color: #ffffff;
-                padding: 2rem 2rem 0;
-                font-family: 'Open Sans', sans-serif;
-                font-weight: 300;
-              "
-            >
+            <div class="" style="color: #ffffff; padding: 2rem 2rem 0; font-family: 'Open Sans', sans-serif; font-weight: 300">
               <div class="flex fdc jcsb">
                 <div>
-                  <h5 style="font-size: 1.1rem; margin-bottom: 0.5rem ;font-weight: 300;">Association of Computer Application</h5>
-              <h6 style="font-size: 0.95rem; margin-bottom: 0.2rem;font-weight: 300;">Department of Information Science and Technology</h6>
-              <h6 style="font-size: 0.9rem; margin-bottom: 0.2rem;font-weight: 300;">College of Engineering Guindy</h6>
-              <h6 style="font-size: 0.8rem; margin-bottom: 1rem;font-weight: 300;">Chennai, Tamil Nadu</h6>
+                  <h5 style="font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 300">Association of Computer Application</h5>
+                  <span
+                    class="location hover-underline"
+                    onclick="window.open('https:\/\/www.google.com/maps/place/Department+of+Information+Science+and+Technology/@13.0129192,80.2359381,903m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a5267a1dbf3955d:0xa2016d5a35abce76!8m2!3d13.0129192!4d80.2359381!16s%2Fg%2F11b724qtc6!5m1!1e2?entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D', '_blank')"
+                  >
+                    <h6 style="font-size: 0.95rem; margin-bottom: 0.2rem; font-weight: 300">
+                      Department of Information Science and Technology
+                    </h6>
+                    <h6 style="font-size: 0.9rem; margin-bottom: 0.2rem; font-weight: 300">College of Engineering Guindy</h6>
+                    <h6 style="font-size: 0.8rem; margin-bottom: 1rem; font-weight: 300">Chennai, Tamil Nadu <i class="bx bx-map"></i></h6>
+                  </span>
                 </div>
                 <div>
-                  <p style="font-weight: 300;font-size: .7rem;">Email:<br><a href="mailto:cegniral@gmail.com" style="all: unset; color: #ffffff" class="clickable">cegniral@gmail.com</a></p>
-                  <p style="font-weight: 300;font-size: .7rem;">Phone:<br> <a href="tel:+91 94437 11377" style="all: unset; color: #ffffff" class="clickable">+91 94437 11377</a> (Kiruthik S Kumar)</p>
+                  <p style="font-weight: 300; font-size: 0.8rem">
+                    Email:
+                    <a href="mailto:cegniral@gmail.com" style="color: #ffffff" class="clickable hover-underline">cegniral@gmail.com</a>
+                  </p>
+                  <p style="font-weight: 300; font-size: 0.8rem">
+                    Phone:
+                    <a href="tel:+91 94437 11377" style="color: #ffffff" class="clickable hover-underline">+91 94437 11377</a> (Kiruthik S
+                    Kumar)
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="logo flex aic jcc" style="display:flex;padding: 2rem 2rem 0; ">
-              <img src="./assets/img/aca_logo.png" width="200px" height="100px" alt="ACA Logo" style="margin: 2rem 0;">
-              <img src="./assets/img/ceg_logo.png" width="200px" height="202px" alt="CEG Logo">
+            <div class="logo flex aic jcc" style="display: flex; padding: 2rem 2rem 0">
+              <img src="./assets/img/aca_logo.png" width="200px" height="100px" alt="ACA Logo" style="margin: 2rem 0" />
+              <img src="./assets/img/ceg_logo.png" width="200px" height="202px" alt="CEG Logo" />
             </div>
           </div>
-        <br>
-        <br>
+          <br />
+          <br />
         </div>
-
       </div>
     </div>
 
-    <!-- <script src="./cursor_tail_trial/script.js"></script> -->
+    <script src="./cursor_tail_trial/script.js"></script>
     <!-- Particle.js script -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-      particlesJS('particles-js', {
-        particles: {
-          number: {
-            value: 80,
-            density: {
-              enable: true,
-              value_area: 800,
-            },
-          },
-          color: {
-            value: '#ffffff',
-          },
-          shape: {
-            type: 'circle',
-            stroke: {
-              width: 0,
-              color: '#000000',
-            },
-          },
-          opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-              enable: false,
-              speed: 1,
-              opacity_min: 0.1,
-              sync: false,
-            },
-          },
-          size: {
-            value: 3,
-            random: true,
-            anim: {
-              enable: false,
-              speed: 40,
-              size_min: 0.1,
-              sync: false,
-            },
-          },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
-            width: 1,
-          },
-          move: {
-            enable: true,
-            speed: 6,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
-            attract: {
-              enable: false,
-              rotateX: 600,
-              rotateY: 1200,
-            },
-          },
-        },
-        interactivity: {
-          detect_on: 'canvas',
-          events: {
-            onhover: {
-              enable: true,
-              mode: 'repulse',
-            },
-            onclick: {
-              enable: true,
-              mode: 'push',
-            },
-            resize: true,
-          },
-          modes: {
-            grab: {
-              distance: 400,
-              line_linked: {
-                opacity: 1,
+      tsParticles.load("tsparticles", {
+          particles: {
+              number: {
+                  value: 100,
+                  density: {
+                      enable: true,
+                      value_area: 800
+                  }
               },
-            },
-            bubble: {
-              distance: 250,
-              size: 0,
-              duration: 2,
-              opacity: 0.8,
-              speed: 3,
-            },
-            repulse: {
-              distance: 400,
-              duration: 0.4,
-            },
-            push: {
-              particles_nb: 4,
-            },
-            remove: {
-              particles_nb: 2,
-            },
+              color: {
+                  value: "#ffffff"
+              },
+              shape: {
+                  type: "circle"
+              },
+              opacity: {
+                  value: 0.5,
+                  random: true,
+                  anim: {
+                      enable: false,
+                      speed: .75,
+                      opacity_min: 0.1,
+                      sync: false
+                  }
+              },
+              size: {
+                  value: 3,
+                  random: true,
+                  anim: {
+                      enable: false,
+                      speed: 40,
+                      size_min: 0.1,
+                      sync: false
+                  }
+              },
+              line_linked: {
+                  enable: true,
+                  distance: 150,
+                  color: "#ffffff",
+                  opacity: 0.4,
+                  width: 1
+              },
+              move: {
+                  enable: true,
+                  speed: 6,
+                  direction: "none",
+                  random: false,
+                  straight: false,
+                  out_mode: "out",
+                  bounce: false,
+                  attract: {
+                      enable: false,
+                      rotateX: 600,
+                      rotateY: 1200
+                  }
+              }
           },
-        },
-        retina_detect: true,
-      })
-    </script>
+          interactivity: {
+              detect_on: "canvas",
+              events: {
+                  onhover: {
+                      enable: true,
+                      mode: "repulse"
+                  },
+                  onclick: {
+                      enable: true,
+                      mode: "push"
+                  },
+                  resize: true
+              },
+              modes: {
+                  grab: {
+                      distance: 400,
+                      line_linked: {
+                          opacity: 1
+                      }
+                  },
+                  bubble: {
+                      distance: 400,
+                      size: 40,
+                      duration: 2,
+                      opacity: 8,
+                      speed: 3
+                  },
+                  repulse: {
+                      distance: 200,
+                      duration: 0.4
+                  },
+                  push: {
+                      particles_nb: 4
+                  },
+                  remove: {
+                      particles_nb: 2
+                  }
+              }
+          },
+          retina_detect: true
+      });
+  </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
       // Special Effects Carousel
