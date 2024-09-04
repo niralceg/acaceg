@@ -114,6 +114,41 @@
     z-index: 11;
     padding: 0 5vw;
   }
+  .notification {
+    background-color: rgba(0, 0, 0, 0.412);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 9.5vh;
+    z-index: 11;
+    left: 0;
+    right: 0;
+    margin: .5vh 0;
+    padding: .2rem 5vw .1rem;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .scrolling-text {
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: white;
+    animation: scroll-text 20s linear infinite;
+  }
+
+  .notification:hover .scrolling-text {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-text {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
   .hero-wrapper {
     height: 90;
     height: 90dvh;
@@ -122,6 +157,7 @@
     width: 100%;
     height: 80vh;
     height: 80dvh;
+    padding-top: 10vh;
     align-items: center;
     justify-content: center;
   }
