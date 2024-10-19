@@ -266,6 +266,12 @@
 
   @media (max-width: 768px) {
     .what-we-do-wrapper {
+      flex-direction: column-reverse !important;
+    }
+    .what-we-do-wrapper:nth-of-type(2) {
+      flex-direction: column !important;
+    }
+    .the-team .container {
       flex-direction: column !important;
     }
     .card {
